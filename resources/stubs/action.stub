@@ -1,0 +1,15 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\Concerns\Actions\IsMakeable;
+
+class {{ class }}
+{
+    use IsMakeable;
+
+    public function handle()
+    {
+        // ...
+    }
+}
