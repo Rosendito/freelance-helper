@@ -20,7 +20,7 @@ createInertiaApp({
   setup({ el, app, props, plugin }) {
     return createApp({ render: () => h(app, props) })
       .use(plugin)
-      .use(ZiggyVue, Ziggy)
+      .use(ZiggyVue, window.Ziggy)
       .mount(el)
   },
 })
