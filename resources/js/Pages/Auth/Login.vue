@@ -1,5 +1,5 @@
 <script setup>
-import { Head, Link, useForm } from '@inertiajs/inertia-vue3'
+import { Head, Link, useForm, usePage } from '@inertiajs/inertia-vue3'
 import AuthenticationCard from '@/Components/AuthenticationCard.vue'
 import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue'
 import Checkbox from '@/Components/Checkbox.vue'
@@ -7,6 +7,7 @@ import InputError from '@/Components/InputError.vue'
 import InputLabel from '@/Components/InputLabel.vue'
 import PrimaryButton from '@/Components/PrimaryButton.vue'
 import TextInput from '@/Components/TextInput.vue'
+import DemoLogin from '@/Components/DemoLogin.vue'
 
 defineProps({
   canResetPassword: Boolean,
@@ -29,10 +30,19 @@ const submit = () => {
       onFinish: () => form.reset('password'),
     })
 }
+
+const onDemoLogin = (user) => {
+  form.email = user.email
+  form.password = usePage().props.value.settings.demo_password
+
+  submit()
+}
 </script>
 
 <template>
   <Head title="Log in" />
+
+  <demo-login @loginDemo="onDemoLogin"/>
 
   <AuthenticationCard>
     <template #logo>

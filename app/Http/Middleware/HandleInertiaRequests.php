@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -37,7 +38,14 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         return array_merge(parent::share($request), [
-            //
+            'settings' => [
+                'demo_users' => config('app.env') === 'local'
+                    ? collect([
+                        User::where('email', 'admin@freelance-helper.io')->first()
+                    ])->filter()
+                    : [],
+                'demo_password' => config('app.env') === 'local' ? env('DEMO_USERS_PASSWORD') : null
+            ]
         ]);
     }
 }
