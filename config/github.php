@@ -42,7 +42,7 @@ return [
 
         'main' => [
             'method'     => 'token',
-            'token'      => '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',
+            'token'      => null,
             // 'backoff'    => false,
             // 'cache'      => false,
             // 'version'    => 'v3',

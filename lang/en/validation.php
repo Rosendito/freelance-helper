@@ -146,6 +146,9 @@ return [
     'ulid' => 'The :attribute must be a valid ULID.',
     'uuid' => 'The :attribute must be a valid UUID.',
 
+    // custom
+    'github_token' => 'The github token provided is invalid',
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines

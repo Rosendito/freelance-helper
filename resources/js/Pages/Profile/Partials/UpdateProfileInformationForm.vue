@@ -18,6 +18,7 @@ const form = useForm({
   _method: 'PUT',
   name: props.user.name,
   email: props.user.email,
+  github_token: props.user.github_token,
   photo: null,
 })
 
@@ -188,6 +189,18 @@ const clearPhotoFileInput = () => {
             A new verification link has been sent to your email address.
           </div>
         </div>
+      </div>
+
+      <!-- Github token -->
+      <div class="col-span-6 sm:col-span-4">
+        <InputLabel for="github_token" value="Github token" />
+        <TextInput
+          id="github_token"
+          v-model="form.github_token"
+          type="text"
+          class="mt-1 block w-full"
+        />
+        <InputError :message="form.errors.github_token" class="mt-2" />
       </div>
     </template>
 
